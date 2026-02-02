@@ -59,6 +59,7 @@
 
     # Programs
     pkgs.nautilus # File manager
+    pkgs.pcmanfm
     pkgs.gnome-music
     pkgs.nitrogen # i3 blackground manager
     pkgs.feh # View images
@@ -74,6 +75,7 @@
     pkgs.unityhub
     pkgs.discord
     pkgs.appflowy # Notion alternative
+    pkgs.cmus # CLI music player
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your

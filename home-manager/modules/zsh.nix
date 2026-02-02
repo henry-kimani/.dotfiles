@@ -9,12 +9,12 @@
       path = "${config.xdg.dataHome}/zsh/history";
     };
     # Plugins
-    zplug = {
+    /* zplug = {
       enable = false;
       plugins = [
       { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
       ];
-    };
+    }; */
 
     oh-my-zsh = {
       enable = true;

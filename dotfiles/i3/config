@@ -126,15 +126,15 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:  "
-set $ws2 "2:  "
+set $ws2 "2:  "
 set $ws3 "3:  "
 set $ws4 "4:  "  
 set $ws5 "5:  "
-set $ws6 "6:  "
+set $ws6 "6: 󰝚 "
 set $ws7 "7:  "
 set $ws8 "8:  "
 set $ws9 "9:  "
-set $ws10 "10"
+set $ws10 "10:  "
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -168,18 +168,16 @@ assign [class="firefox"] $ws2
 assign [class="Microsoft-edge"] $ws2
 assign [class="zen-twilight"] $ws2
 
+assign [class="Pcmanfm"] $ws3
 assign [class="org.gnome.Nautilus"] $ws3
 assign [class="libreoffice-startcenter"] $ws3
 assign [class="libreoffice-writer"] $ws3
 assign [class="libreoffice-calc"] $ws3
 
+assign [class="kitty"] $ws4
+
 assign [class="dragonplayer" ] $ws5
 assign [class="Totem" ] $ws5
-
-assign [class="com.github.th_ch.youtube_music" ] $ws6
-
-assign [class="Whatsapp-for-linux"] $ws7
-for_window [class="Microsoft-edge" instance="^crx__hnpfjngllnobngcgfapefoaidbinmjnm$" ] move container to workspace number $ws7
 
 assign [class="discord"] $ws8
 
@@ -224,22 +222,21 @@ set $rosewater 	#f5e0dc
 set $peach 	#fab387 
 set $green 	#a6e3a1
 set $blue 	#89b4fa
-set $lavender 	#b4befe
 set $text 	#cdd6f4 
 set $overlay0 	#6c7086
 set $surface0 	#313244
 set $base 	#11111b
-# set $base #2D2A2E
-set $active #ea76cb
+set $base1 #2D2A2E
+set $active #f38d70
 set $monokai #f38d70
 
-# target                 title     bg    text       indicator  border
-client.focused           $active   $base $rosewater $rosewater $monokai
-client.focused_inactive  $overlay0 $base $text      $rosewater $overlay0
-client.unfocused         $overlay0 $base $text      $rosewater $overlay0
-client.urgent            $monokai  $base $peach     $overlay0  $peach
-client.placeholder       $overlay0 $base $text      $overlay0  $overlay0
-client.background        $base
+# target                 title     bg     text       indicator  border
+client.focused           $active   $base1 $rosewater $rosewater $monokai
+client.focused_inactive  $overlay0 $base  $text      $rosewater $overlay0
+client.unfocused         $overlay0 $base  $text      $rosewater $overlay0
+client.urgent            $monokai  $base  $peach     $overlay0  $peach
+client.placeholder       $overlay0 $base  $text      $overlay0  $overlay0
+client.background        #2d2a2e
 
 # bar
 bar {
@@ -247,15 +244,16 @@ bar {
   status_command i3status
 
   colors {
-    background         $base
-      statusline         #344
-      focused_statusline $monokai # status general color
-      active_workspace   $base $text $blue
-      # focused_separator  #fff
-      focused_workspace  $base $monokai $base
-      inactive_workspace $base $base $monokai
-      urgent_workspace   $base $base $surface1
-      binding_mode       $base $base $surface1
+    background         $base1
+    statusline         #344
+    
+    # class             border  bg        text
+    focused_statusline  $active
+    active_workspace    $base   $text     $blue
+    focused_workspace   $base   $monokai  $base
+    inactive_workspace  $base   $base     $monokai
+    urgent_workspace    $base   $base     $surface1
+    binding_mode        $base   $base     $surface1
   }
 
   font pango:DejaVu Sans 10
